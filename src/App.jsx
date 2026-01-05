@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
-import SidebarToggle from './components/SidebarToggle'
 import Hero from './components/Hero'
 
 function App() {
@@ -14,9 +13,8 @@ function App() {
   return (
     <div className="flex min-h-screen bg-black text-white">
       <Sidebar isOpen={isSidebarOpen} />
-      <SidebarToggle isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className={`flex flex-col flex-1 transition-all duration-300 ${isSidebarOpen ? 'md:ml-64' : 'md:ml-16'}`}>
-        <Header />
+      <div className={`flex flex-col flex-1 transition-all duration-500 ease-in-out ${isSidebarOpen ? 'md:ml-64' : 'md:ml-0'}`}>
+        <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
         <Hero />
       </div>
     </div>
